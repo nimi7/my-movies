@@ -211,7 +211,7 @@ export default function PupolarMovies(props) {
                                 <div className=''>
                                     < div class=" bg-cover bg-top  xs:w-14 xs:h-24 sm:h-96 sm:w-32 md:h-96 md:w-64 bg-yellow text-gray-200 shadow-md transform hover:scale-100 duration-500 " style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original/${props.poster_path})` }}>
                                         <div class="flex justify-between  items-center md:ml-4 xs:ml-0  pr-8 ">
-                                            <div class="bg-red-600 text-white opacity-75 xs:w-7  shadow px-2 py-1 flex items-center font-bold text-xs rounded xxs:hidden md:block ">Rating:{props.vote_average}</div>
+                                            <div class="bg-red-600 text-white opacity-75 xs:w-18  shadow px-2 py-1 flex items-center font-bold text-xs rounded xxs:hidden md:block ">Rating:{props.vote_average}</div>
                                             <div class="bg-red-600 md:w-12 md:h-12 sm:w-8 sm:h-8 sm:mr-2 sm:text-xs opacity-75 shadow flex flex-col-reverse p-2 text-center font-bold text-white rounded-b-full xs:hidden md:block ">{props.release_date.slice(0, 4)}</div>
                                         </div>
                                         <div class="bg-black opacity-75 shadow-md rounded-r-xl p-2 flex flex-col  ml-0 mt-64  xxs:hidden md:block">
