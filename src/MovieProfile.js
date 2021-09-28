@@ -45,7 +45,7 @@ export default function Movieprofile(props) {
                 <div class="max-w-7xl h-screen flex items-center lg:h-screen flex-wrap mx-auto my-8 lg:my-0">
 
 
-                    <div  id="profile" style={{backgroundColor: light}} class="lg:w-3/5  rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-80 mx-2 lg:mx-0">
+                    <div  id="profile" style={{backgroundColor: light}} class="lg:w-3/5  sm:mr-7 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-80 mx-2 lg:mx-0">
 
 
                         <div class="p-1 md:p-14 text-center lg:text-left">

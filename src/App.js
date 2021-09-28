@@ -20,7 +20,7 @@ function App() {
 var nimrod = 'nimrod';
 
   return (
-    <div className="App">
+    <div className="bg-black">
  
     <BrowserRouter>
       

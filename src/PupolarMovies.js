@@ -4,7 +4,7 @@ import Fetch from 'fetch';
 import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import Navbar from './navbar';
-
+import { InputGroup, FormControl } from 'react-bootstrap';
 export default function PupolarMovies(props) {
     const api_key = '88626d5c6ba59d5c33bd290f8a75e0a9&language=enUS&page=';
     const url = 'https://api.themoviedb.org/3/movie/';
@@ -128,31 +128,40 @@ export default function PupolarMovies(props) {
 
 
 
-                    <div>
-                        <button
-                            class="bg-red-500 px-3 py-1 text-md shadow-sm font-small tracking-wider  text-red-100 rounded-xl mr-14 hover:shadow-2xl hover:bg-red-800"
-                            onClick={() => HandleSubmit(search)}>
-                            Search
-                        </button>
+
+                    <div className='flex'>
+                        <>
+                            <InputGroup className="mb-2 mr-10">
+                                <div className='flex justify-start text-white select-all'>                               
+                                    {error}
+                                </div>
+                                <FormControl
+                                    value={search}
+                                    onSubmit={() => HandleSubmit(search)}
+                                    onChange={e => Setsearch(e.target.value)}
+                                    className='text-black rounded-md'
+                                    placeholder="Search..."
+                                    aria-label="Username"
+                                    aria-describedby="basic-addon1"
+                                />
+
+                                <InputGroup.Text className='text-red-200' >    <button
+                                    class="border border-red-500 text-red-500 h-7 rounded-md px-4 py-0 m-2 transition duration-500 ease select-none hover:text-white hover:bg-red-600 focus:outline-none focus:shadow-outline"
+                                    onClick={() => HandleSubmit(search)}>
+                                    Search
+                                </button></InputGroup.Text>
+                            </InputGroup>
 
 
+                        </>
+
+                      
 
                     </div>
-                    <div>
-                        <input
-                            value={search}
-                            onSubmit={() => HandleSubmit(search)}
-                            onChange={e => Setsearch(e.target.value)}
-                            type="text"
-                            placeholder="Serach..."
-                            class="px-2 py-1 rounded-lg border border-red-500 text-red-400 placeholder-red-400 focus:outline-none focus:ring-2 focus:ring-red-200"
-                        />
-                        <div className='text-yellow-200 text-sm text-opacity-50'>
-                            {error}
-                        </div>
-                    </div>
+
 
                 </div>
+
 
 
             </div>
@@ -178,10 +187,10 @@ export default function PupolarMovies(props) {
                     </button>
                 </div>
 
-                <div className='grid grid-cols-1 gap-4 ml-16 mr-16 xl:grid-cols-3 lg:grid-cols-3  md:grid-cols-2 xs:grid justify-items-center bg-black '>
+                <div className='grid grid-cols-3 gap-4 ml-16 mr-16 xl:grid-cols-3 lg:grid-cols-3  md:grid-cols-2 xs:grid justify-items-center bg-black '>
 
                     {Movies.map((props) => {
-                        return <div class="bg-black  mt-10">
+                        return <div class="bg-black">
 
                             <Link to={{
                                 pathname: `/MovieProfile`,
@@ -198,19 +207,23 @@ export default function PupolarMovies(props) {
 
                                 },
                             }}
-                            >   < div class=" mx-auto overflow-visible bg-cover bg-top sm: bg-cover w-64 h-96 bg-black text-gray-200 shadow-md transform hover:scale-100 duration-500 " style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original/${props.poster_path})` }}>
-                                    <div class="flex justify-between  items-center ml-4 pr-8">
-                                        <div class="bg-red-600 text-white opacity-75 shadow px-2 py-1 flex items-center font-bold text-xs rounded">Rating:{props.vote_average}</div>
-                                        <div class="bg-red-600 w-12 h-12 opacity-75 shadow flex flex-col-reverse p-2 text-center font-bold text-white rounded-b-full">{props.release_date.slice(0, 4)}</div>
-                                    </div>
-                                    <div class="bg-black opacity-75 shadow-md rounded-r-xl p-2 flex flex-col  ml-0 mt-64">
-                                        <h3 class="text-xs font-bold pb-0">{props.title}</h3>
-                                        <p class="truncate text-gray-500 text-sm">{props.original_language}</p>
-                                        <div class="flex justify-between items-center">
-                                            <span class="text-gray-400 text-xs"></span>
+                            >
+                                <div className=''>
+                                    < div class=" bg-cover bg-top  xs:w-14 xs:h-24 sm:h-96 sm:w-32 md:h-96 md:w-64 bg-yellow text-gray-200 shadow-md transform hover:scale-100 duration-500 " style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original/${props.poster_path})` }}>
+                                        <div class="flex justify-between  items-center md:ml-4 xs:ml-0  pr-8 ">
+                                            <div class="bg-red-600 text-white opacity-75 xs:w-7  shadow px-2 py-1 flex items-center font-bold text-xs rounded xxs:hidden md:block ">Rating:{props.vote_average}</div>
+                                            <div class="bg-red-600 md:w-12 md:h-12 sm:w-8 sm:h-8 sm:mr-2 sm:text-xs opacity-75 shadow flex flex-col-reverse p-2 text-center font-bold text-white rounded-b-full xs:hidden md:block ">{props.release_date.slice(0, 4)}</div>
+                                        </div>
+                                        <div class="bg-black opacity-75 shadow-md rounded-r-xl p-2 flex flex-col  ml-0 mt-64  xxs:hidden md:block">
+                                            <h3 class="text-xs font-bold pb-0">{props.title}</h3>
+                                            <p class="truncate text-gray-500 text-sm">{props.original_language}</p>
+                                            <div class="flex justify-between items-center">
+                                                <span class="text-gray-400 text-xs"></span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div></Link>
+                                </div>
+                            </Link>
 
                         </div>
 
